@@ -1,0 +1,25 @@
+.card {
+  -webkit-box-shadow: 4px 4px 4px -1px rgb(194, 172, 172);
+  -moz-box-shadow: 4px 4px 4px -1px rgb(194, 172, 172);
+  box-shadow: 4px 4px 4px -1px rgb(194, 172, 172);
+  padding: 4%;
+}
+.card-title {
+  color: black;
+}
+.card-logo {
+  height: 80px;
+  width: 80px;
+  float: right;
+}
+.card :hover {
+background-color: rgb(240, 238, 236);
+}
+@media screen and (max-width: 536px) {
+  .card-logo {
+    display: none;
+  }
+  .card {
+    background-color: rgba(255, 62, 62, 0.3) 0px 30px 60px -30px;
+  }
+}

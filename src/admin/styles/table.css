@@ -1,0 +1,12 @@
+.table-user {
+  background-color: rgb(255, 254, 254);
+  border: 2px solid rgb(255, 210, 210);
+}
+.title {
+  text-align: center;
+  font-size: x-large;
+  font-weight: bold;
+}
+.t-head{
+  background-color: rgb(230, 230, 233);
+}

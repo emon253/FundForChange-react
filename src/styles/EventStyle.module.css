@@ -1,0 +1,31 @@
+.box {
+  background-color: rgb(243, 243, 243);
+  align-items: center;
+  padding: 20px;
+  margin-top: 100px;
+}
+.title {
+  text-align: center;
+  font-size: 2.5rem;
+}
+
+Button {
+  width: 140px;
+  margin: 2px;
+}
+
+/* card 2 */
+.card2{
+  -webkit-box-shadow: 4px 4px 4px -1px rgb(194, 172, 172)   ;
+	   -moz-box-shadow: 4px 4px 4px -1px rgb(194, 172, 172);
+	        box-shadow: 4px 4px 4px -1px rgb(194, 172, 172);
+}
+.card2Header {
+  background-color: rgb(143, 255, 143);
+  font-size: 1.5rem;
+  color: rgb(0, 0, 0);
+}
+.card2Body {
+  font-size: 1.5rem;
+  text-align: center;
+}

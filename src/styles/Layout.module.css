@@ -1,0 +1,15 @@
+.background{
+    height: 100vh;
+    background-image: url('../Assets/bg_main.gif');
+    background-repeat: no-repeat, repeat;
+    background-size: cover;
+    background-position: center;
+    font-family: "Nikosh" !important
+
+}
+.main{
+    height: 100vh;
+    background-color: #f7f7f7;
+    padding: 10px;
+    box-shadow: 5px 10px 18px #504444;
+}
