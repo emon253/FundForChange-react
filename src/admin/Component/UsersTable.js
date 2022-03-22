@@ -1,7 +1,7 @@
 import Table from "react-bootstrap/Table";
 import TableScrollbar from "react-table-scrollbar";
 import "../styles/table.css";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 export default function UsersTable({
   th,
   td,
@@ -13,10 +13,10 @@ export default function UsersTable({
     <>
       <div className="table-user">
         <div className="title">{title}</div>
-        <TableScrollbar rows={10}>
+        <TableScrollbar rows={7}>
           {/* <Table striped bordered hover size="sm"> */}
-          <Table hover size="sm">
-            <thead className="t-head">
+          <Table style={{}} size="sm">
+            <thead v className="t-head text-center">
               <tr>
                 {th.map((columnName, index) => {
                   return <th key={index}> {columnName}</th>;
@@ -27,23 +27,28 @@ export default function UsersTable({
               {td.map((e, index) => {
                 if (name === "users") {
                   return (
-                    <tr key={index}>
-                      <td>1</td>
-                      <td>Mark</td>
-                      <td>Otto</td>
-                      <td>Otto</td>
+                    <tr className="text-center"  key={index}>
+                      <td>
+                      <Link style={{color:"green", fontWeight:"bold"}} to={"/usr/"+e.userId}>usr{e.userId}</Link>
+                    </td>
+                      <td>{e.fullName}</td>
+                      <td>{e.userPhone}</td>
+                      <td>{e.userEmail}</td>
+                      <td >{e.role}</td>
+                    
+                    
                     </tr>
                   );
                 }
                 return (
-                  <tr  key={index}>
+                  <tr className="text-center"  key={index}>
                     <td>
                       <Link style={{color:"green", fontWeight:"bold"}} to={"/event/"+e.eventId}>{"Event "+ e.eventId}</Link>
                     </td>
                     <td>{e.user.fullName}</td>
                     <td>{e.phone}</td>
                     <td>{e.targetAmount}</td>
-                    <td>{e.status}</td>
+                    <td style={e.status==='Accepted'?{backgroundColor:'green',color:'white'}:{}}>{e.status}</td>
                   </tr>
                 );
               })}

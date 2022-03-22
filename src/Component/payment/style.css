@@ -1,0 +1,9 @@
+.main{
+    background-color: rgb(215, 226, 235);
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.header{
+    font-size: 2rem;
+}

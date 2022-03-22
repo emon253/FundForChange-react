@@ -8,6 +8,9 @@ import { Row, Col } from "react-bootstrap";
 import SelectInput from "./SelectInput";
 import useLocation from "../Hooks/useLocation";
 import axios from "axios";
+import { ToastContainer, toast } from 'react-toastify';
+import authHeader from "../services/auth-header";
+import { useNavigate } from "react-router-dom";
 export default function EventDetailsInputForm() {
   const [eventName, setEventName] = useState("");
   const [eventDescriction, setEventDescriction] = useState("");
@@ -59,12 +62,13 @@ export default function EventDetailsInputForm() {
 
   // Location functioonalities end
 
-  /**...................... Setup api request.................................................. */
+  /**............................. Setup api request.................................................. */
+  const navigation = useNavigate();
 
   async function handleSubmit(e) {
     e.preventDefault();
 
-    axios
+  await  axios
       .post("http://localhost:8080/event/addEvent", {
         eventName,
         eventDescriction,
@@ -77,9 +81,21 @@ export default function EventDetailsInputForm() {
         email,
         phone,
         nid
+      },{
+        headers: {
+          Authorization: authHeader(),
+        },
       })
       .then((response) => {
-        console.log(response);
+        
+        toast.success("Your request has successfully sent, Please wait for verification",{
+          onClose: () => {
+            navigation("/request-event")
+            window.location.reload()
+          }
+
+        })
+      
       })
       .catch((error) => {
         console.log("Error Occured............");
@@ -216,6 +232,8 @@ export default function EventDetailsInputForm() {
       <Button type="submit">
         <span>Submit</span>
       </Button>
+      <ToastContainer />
+
     </Form>
   );
 }

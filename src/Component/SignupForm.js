@@ -1,20 +1,21 @@
+import axios from "axios";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Button from "./Button";
 import Checkbox from "./Checkbox";
-import Form from "../Component/Form";
+import Form from "./Form";
 import TextInput from "./TextInput";
 
 export default function SignupForm() {
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
+  const [fullName, setFullName] = useState("");
+  const [userEmail, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [agree, setAgree] = useState("");
 
   const [error, setError] = useState();
   const [loading, setLoading] = useState();
-
+  const navigation = useNavigate();
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -23,34 +24,42 @@ export default function SignupForm() {
       return setError("Passwords don't match!");
     }
 
-    try {
-      setError("");
-      setLoading(true);
-     
-    } catch (err) {
-      console.log(err);
-      setLoading(false);
-      setError("Failed to create an account!");
-    }
+    axios
+      .post("http://localhost:8080/user/addUser", {
+        fullName,
+        userEmail,
+        password,
+        confirmPassword,
+      })
+      .then((response) => {
+        console.log(response);
+        localStorage.setItem("signupStatus", true);
+        navigation("/login");
+        window.location.reload();
+      })
+      .catch((error) => {
+        console.log("Error Occured............");
+        console.log(error);
+      });
   }
 
   return (
     <Form style={{ height: "500px" }} onSubmit={handleSubmit}>
       <TextInput
         type="text"
-        placeholder="Enter name"
+        placeholder="Enter full name"
         icon=""
         required
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
+        value={fullName}
+        onChange={(e) => setFullName(e.target.value)}
       />
 
       <TextInput
-        type="text"
+        type="email"
         required
         placeholder="Enter email"
         icon=""
-        value={email}
+        value={userEmail}
         onChange={(e) => setEmail(e.target.value)}
       />
 

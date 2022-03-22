@@ -1,30 +1,25 @@
+import { useEffect } from "react";
 import {Table} from "react-bootstrap";
+import authService from "../services/auth.service";
+import { Card } from "react-bootstrap";
+import UserProfile from "../User/Component/UserProfile";
+import swal from "sweetalert";
+import { ToastContainer, toast } from 'react-toastify';
+import PaymentUI from "../Component/payment/PaymentUI";
+
 export default function Services() {
+  useEffect(()=>{
+    // const user = localStorage.getItem('user');
+    // console.log(JSON.parse(user))
+  //   console.log(JSON.parse(localStorage.getItem('user')))
+  //  authService.logout()
+  //   console.log(JSON.parse(localStorage.getItem('user')))
+  },[])
   return (
-    <Table responsive>
-      <thead>
-        <tr>
-          <th>#</th>
-          {Array.from({ length: 12 }).map((_, index) => (
-            <th key={index}>Table heading</th>
-          ))}
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          {Array.from({ length: 12 }).map((_, index) => (
-            <td key={index}>Table cell {index}</td>
-          ))}
-        </tr>
-        <tr>
-          <td>2</td>
-          {Array.from({ length: 12 }).map((_, index) => (
-            <td key={index}>Table cell {index}</td>
-          ))}
-        </tr>
-      
-      </tbody>
-    </Table>
+    <>
+   
+    <PaymentUI/>
+    </>
+
   );
 }

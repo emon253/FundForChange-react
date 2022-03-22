@@ -1,0 +1,46 @@
+.main {
+  width: 100%;
+  padding: 1%;
+}
+.helpBox {
+  float: right;
+}
+.card {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  font-size: 1.5rem;
+  text-align: center;
+}
+.title {
+  font-size: 2.5rem;
+  font-weight: bolder;
+  color: rgb(194, 36, 36);
+}
+.image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+  border-radius: 40%;
+  background-color: rgb(251, 249, 249);
+}
+.body p {
+  color: rgb(67, 82, 3);
+}
+
+/* Setting styling */
+
+.header{
+  width: 100%;
+}
+.headerop2{
+  float: right;
+}
+.item > label{
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin: 5px;
+}

@@ -1,0 +1,63 @@
+
+.side-menu {
+    position: fixed;
+    background: #29242e;
+    margin-top: 8rem;
+    width: 20vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.side-menu .brand-name {
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.side-menu li .link{
+    font-size: 15px;
+    padding: 10px 40px;
+    color: white;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.side-menu li:hover {
+    background: rgb(255, 171, 171);
+    color: #f05462;
+}
+/* axtive nav */
+.selected{
+     background: rgb(24, 16, 16);
+    color: #f05462;
+}
+@media screen and (max-width: 1050px) {
+    .side-menu li {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 940px) {
+    .side-menu li span {
+        display: none;
+    }
+    .side-menu {
+        align-items: center;
+    }
+    .side-menu li img {
+        width: 40px;
+        height: 40px;
+    }
+    .side-menu li:hover {
+        background: #f05462;
+        padding: 8px 38px;
+        border: 2px solid white;
+    }
+}
+
+
+/* Content */
